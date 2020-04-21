@@ -87,8 +87,9 @@ function calculateBtnClicked() {
 
     var billString = billStringField.value;
     const roundedBillTotal = totalPhoneBill(billString);
-    billTotalElement.innerHTML = roundedBillTotal;
+     billTotalElement.innerHTML = roundedBillTotal;
     styleTotalColor(roundedBillTotal);
+    
 }
 
 calculateBtn.addEventListener("click", calculateBtnClicked);
