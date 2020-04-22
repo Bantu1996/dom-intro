@@ -8,28 +8,6 @@ const billStringField = document.querySelector(".billString");
 const billTotalSpanElement = document.querySelector(".total")
 
 //create the function that will be called when the calculate button is pressed
-/*const mycalculateBtn = document.querySelector(".calculateBtn");
-const billTotal = document.querySelector(".billTotal");
-const billString = document.querySelector(".billString");
-
-function calculateBtnClicked(){
-    var billItems = "items";
-    var billStringField = "textArea";
-    var billString = billStringField.value;
-    var billStringField = billItems.split(",");
-    var billTotal = 0.00;
-    for (var i=0;i<billItems.length;i++){
-        var billItem = billItems[i].trim();
-        if (billItem === "call"){
-            billTotal += 2.75;
-        }
-        else if (billItem === "sms"){
-            billTotal += 0.75;
-        }
-    }
-    calculateBtn.addEventListener("click", calculateBtnClicked);
-}
-*/
 //  * this function should read the string value entered - split it on a comma.
 //  * loop over all the entries in the the resulting list
 //  * check if it is a call or an sms and add the right amount to the overall total

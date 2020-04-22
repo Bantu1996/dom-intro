@@ -12,11 +12,11 @@
 // * display the latest total on the screen
  const billTypeTextField = document.querySelector(".billTypeText");
  const addToBillBtn = document.querySelector(".addToBillBtn");
- const callsTotalElement = document.querySelector(".callTotalOne");
+ var callsTotalElement = document.querySelector(".callTotalOne");
  //const callsTotalSpanElement = document.querySelector(".callTotalOne");
-const smsTotalElement = document.querySelector(".smsTotalOne");
+var smsTotalElement = document.querySelector(".smsTotalOne");
 //const smsTotalSpanElement = document.querySelector(".smsTotalOne");
-const totalCostElement = document.querySelector(".totalOne");
+var totalCostElement = document.querySelector(".totalOne");
 const totalCostSpanElement = document.querySelector(".red");
 
 
@@ -29,10 +29,10 @@ function textBillTotal(billTypeText){
     
     for (var i=0;i<billTypeEntered.length;i++) {
       var billTypeEntering = billTypeEntered[i].trim();
-          var callsTotal = 0;
+          var callsTotal = 27.50;
 
     if (billTypeEntering === "call"){
-        callsTotal += 27.50;
+        callsTotal += 2.75;
     }
     else if (billTypeEntering === "sms"){
         
@@ -41,9 +41,9 @@ function textBillTotal(billTypeText){
    
   for (var i=0;i<billTypeEntered.length;i++) {
        var billTypeEntering = billTypeEntered[i].trim();
-        var smsTotal = 0;
+        var smsTotal = 13.75;
         if (billTypeEntering === "sms"){
-        smsTotal += 13.75;
+        smsTotal += 0.75;
         }
         else if (billTypeEntering === "call"){
             
