@@ -24,7 +24,7 @@ function radioTotalBilling(billItemTypeRadio) {
     
     const checkedRadioBtns = document.querySelector(".billItemTypeRadio:checked")
     if (checkedRadioBtns){
-     var  billItemTypeRadio= checkedRadioBtns.value
+     var  billItemTypeRadio = checkedRadioBtns.value
      // billItemType will be 'call' or 'sms'
     }
 var billingItems = billItemTypeRadio.split(" ");
@@ -40,7 +40,7 @@ if (billingItem === "call") {
 }
 else if (billingItem === "sms") {
 
-    radioSmsTotal += 0;
+    radioSmsTotal += 0.75;
 }
 } 
 for (var i=0;i<billingItems.length;i++) {
@@ -54,7 +54,7 @@ if (billingItem === "sms") {
 }
 else if (billingItem === "call") {
 
-    radioCallTotal += 0;
+    radioCallTotal += 2.75;
 }
 }
     

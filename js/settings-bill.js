@@ -29,30 +29,31 @@ function billTypeTotal(billItemTypeWithSettings) {
     if (checkedSettingsRadioButtons){
      var billItemTypeWithSettings = checkedSettingsRadioButtons.value
     }
-var settingbillItems = billItemTypeWithSettings.split(" ");
-for (var i=0;i<settingbillItems.length;i++) {
-    var settingbillItem = settingbillItems[i].trim();
+var settingBillItems = billItemTypeWithSettings.split(" ");
+for (var i=0;i<settingBillItems.length;i++) {
+    var settingBillItem = settingBillItems[i].trim();
     var settingCallTotal = 34.00;
-if (settingbillItem === "call") {
-    settingCallTotal += 2.55;
+if (settingBillItem === "call") {
+    settingCallTotal += 2.65;
 }
-else if (settingbillItem === "sms") {
-    settingSmsTotal += 0;
-}
-} 
-for (var i=0;i<settingbillItems.length;i++) {
-    var settingbillItem = settingbillItems[i];
-    var settingSmsTotal = 7.35;
-if (settingbillItem === "sms") {
+
+ if (settingBillItem === "sms") {
     settingSmsTotal += 0.65;
 }
-else if (settingbillItem === "call") {
-    settingCallTotal += 0;
+} 
+for (var i=0;i<settingBillItems.length;i++) {
+    var settingBillItem = settingBillItems[i];
+    var settingSmsTotal = 7.35;
+if (settingBillItem === "call") {
+    settingCallTotal += 2.65;
+}
+ if (settingBillItem === "sms") {
+    settingSmsTotal += 0.65;
 }
 }
     settingCallTotalElement.innerHTML = settingCallTotal.toFixed(2);
     settingSmsTotalElement.innerHTML = settingSmsTotal.toFixed(2);
-    var settingTotalBill = settingCallTotal + settingSmsTotal;
+    const settingTotalBill = settingCallTotal + settingSmsTotal;
     settingTotalBillElement.innerHTML = settingTotalBill.toFixed(2);
 return settingTotalBill;
 }
@@ -69,25 +70,36 @@ else if (currentSettingTotalBill >= 30 && currentSettingTotalBill <= 65){
 }
 }
 
-function updatingSettings() {
+//function updatingSettings() {
+
+   
   
-    callCostSettings =  Number(settingCallTotal);
-    smsCostSettings =  Number(smsCostSetting);
-    warningLevelSettings =  Number(warningLevelSetting);
-    criticalLevelSettings = Number(criticalLevelSetting.value);
-}
+//}
 
 
 function checkedBillTypeBtn() {
     var billItemTypeWithSettings = settingsRadioButtons.value;
  settingTotalBill = billTypeTotal(billItemTypeWithSettings);
    settingTotalBillElement.innerHTML = settingTotalBill;
-   selectingSettingBillColor(settingTotalBill)
+   selectingSettingBillColor(settingTotalBill);
+   alert(settingTotalBill);
 }
 
 function checkedSettingBillBtn() {
- // settingTotalBill = updatingSettings(currentSettingTotalBill);
-alert(callCostSettings);
+    var updateSettings = updateSettingsBtn.value;
+ if (updateSettings === "call"){
+    settingCallTotal += callCostSetting;
+ }
+ else if(updateSettings === "sms"){
+     settingSmsTotal += "sms";
+ }
+  
+ settingCallTotal =  callCostSettings.value;
+ smsCostSetting =  smsCostSettings.value;
+ warningLevelSetting = warningLevelSettings.value;
+ criticalLevelSetting = criticalLevelSettings.value;
+ //settingTotalBill = updatingSettings(settingTotalBill);
+//alert(warningLevelSetting);
 }
 //in the event listener get the value from the billItemTypeRadio radio buttons
 // * add the appropriate value to the call / sms total
