@@ -1,7 +1,7 @@
 // get a reference to the sms or call radio buttons
-const radioBtns = document.querySelector(".billItemTypeRadio");
+var radioBtns = document.querySelector(".billItemTypeRadio");
 //get a reference to the add button
-const radioBillAddBtn = document.querySelector(".radioBillAddBtn");
+const radioBillAddBtn = document.querySelector(".button");
 //create a variable that will keep track of the total bill
 var radioTotalBill = document.querySelector(".totalTwo");
 
@@ -22,9 +22,9 @@ const radioTotalBillSpanElement = document.querySelector(".orange");
 
 function radioTotalBilling(billItemTypeRadio) {
     
-    var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked")
-    if (checkedRadioBtn){
-     var billItemType = checkedRadioBtn.value
+    const checkedRadioBtns = document.querySelector(".billItemTypeRadio:checked")
+    if (checkedRadioBtns){
+     var  billItemTypeRadio= checkedRadioBtns.value
      // billItemType will be 'call' or 'sms'
     }
 var billingItems = billItemTypeRadio.split(" ");
@@ -57,6 +57,7 @@ else if (billingItem === "call") {
     radioCallTotal += 0;
 }
 }
+    
     radioCallTotalElement.innerHTML = radioCallTotal.toFixed(2);
     radioSmsTotalElement.innerHTML = radioSmsTotal.toFixed(2);
     var radioTotalBill = radioCallTotal + radioSmsTotal;
@@ -83,11 +84,11 @@ else if (currentRadioTotalBill >= 30 && currentRadioTotalBill <= 50){
 
 
 function checkedRadioBtn() {
-    var billItemTypeRadio =radioBtns.value;
+    var billItemTypeRadio = radioBtns.value;
+    radioTotalBillElement.innerHTML = radioTotalBill;
    radioTotalBill = radioTotalBilling(billItemTypeRadio);
-   radioTotalBillElement.innerHTML = radioTotalBill;
    selectingRadioBillColor(radioTotalBill)
-   //alert(billItemTypeRadio)
+  // alert(radioTotalBill);
 }
 
 //in the event listener get the value from the billItemTypeRadio radio buttons
