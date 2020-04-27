@@ -40,7 +40,7 @@ if (billingItem === "call") {
 }
 else if (billingItem === "sms") {
 
-    radioSmsTotal += 0.75;
+    radioSmsTotal += 0;
 }
 } 
 for (var i=0;i<billingItems.length;i++) {
@@ -54,7 +54,7 @@ if (billingItem === "sms") {
 }
 else if (billingItem === "call") {
 
-    radioCallTotal += 2.75;
+    radioCallTotal += 0;
 }
 }
     

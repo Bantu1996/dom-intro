@@ -82,18 +82,18 @@ function checkedBillTypeBtn() {
  settingTotalBill = billTypeTotal(billItemTypeWithSettings);
    settingTotalBillElement.innerHTML = settingTotalBill;
    selectingSettingBillColor(settingTotalBill);
-   alert(settingTotalBill);
+   //alert(settingTotalBill);
 }
 
 function checkedSettingBillBtn() {
     var updateSettings = updateSettingsBtn.value;
- if (updateSettings === "call"){
-    settingCallTotal += callCostSetting;
- }
- else if(updateSettings === "sms"){
-     settingSmsTotal += "sms";
- }
-  
+
+    var settingTotalBill = updateSettings;
+if (settingTotalBill >= 65.00){
+    updateSettings(criticalLevelSetting);
+}
+
+
  settingCallTotal =  callCostSettings.value;
  smsCostSetting =  smsCostSettings.value;
  warningLevelSetting = warningLevelSettings.value;
