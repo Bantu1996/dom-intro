@@ -22,30 +22,27 @@ const totalCostSpanElement = document.querySelector(".red");
 
 function textBillTotal(billTypeText){
 // get the value entered in the billType textfield
-var billTypeEntered = billTypeText.split(" ");
+var billingType = billTypeText;
 // update the correct total
-for (var i=0;i<billTypeEntered.length;i++) {
-var billTypeEntering = billTypeEntered[i].trim();
+/*for (var i=0;i<billingType.length;i++) {
+var billingTrim = billingType[i].trim();*/
 var callsTotal = 27.50;
-
-if (billTypeEntering === "call"){
+var smsTotal = 13.75;
+if (billingType === "call"){
 callsTotal += 2.75;
 }
-else if (billTypeEntering === "sms"){
+else if (billingType === "sms"){
 smsTotal += 0;
 }
-for (var i=0;i<billTypeEntered.length;i++) {
-var billTypeEntering = billTypeEntered[i].trim();
-var smsTotal = 13.75;
-if (billTypeEntering === "sms"){
+
+
+
+/*if (billingType === "sms"){
 smsTotal += 0.75;
 }
-else if (billTypeEntering === "call"){
+else if (billingType=== "call"){
 callsTotal += 0;
-} 
-}
-
-}
+} */
 
 //update the totals that is displayed on the screen.
 
@@ -55,6 +52,7 @@ callsTotalElement.innerHTML = callsTotal.toFixed(2);
 smsTotalElement.innerHTML = smsTotal.toFixed(2);
 var totalCost = callsTotal + smsTotal;
 totalCostElement.innerHTML = totalCost.toFixed(2);
+
 return totalCost;
 } 
 
@@ -74,15 +72,14 @@ totalCostSpanElement.classList.add("warning");
 
 }
 
-//textTotalAddBtn.addEventListener('click', textBillTotal);
 
 function addToBillBtnClicked(){
 
-var billTypeText = billTypeTextField.value
-const totalCost = textBillTotal(billTypeText);
-totalCostElement.innerHTML = totalCost;
+var billTypeText = billTypeTextField.value;
+ totalCost = textBillTotal(billTypeText);
+//totalCostElement.innerHTML = totalCost;
 stylingTotalCostColor(totalCost)
-// alert(billTypeText);
+//alert(billTypeText);
 }
 
 addToBillBtn.addEventListener("click", addToBillBtnClicked)

@@ -26,43 +26,43 @@ function radioTotalBilling(billItemTypeRadio) {
     if (checkedRadioBtns){
      var  billItemTypeRadio = checkedRadioBtns.value
      // billItemType will be 'call' or 'sms'
-    }
-var billingItems = billItemTypeRadio.split(" ");
+    //}
+var billingItems = billItemTypeRadio;
 
-for (var i=0;i<billingItems.length;i++) {
-    var billingItem = billingItems[i].trim();
+/*for (var i=0;i<billingItems.length;i++) {
+    var billingItem = billingItems[i].trim();*/
 
     var radioCallTotal = 34.50;
 
-if (billingItem === "call") {
+if (billingItems === "call") {
 
     radioCallTotal += 2.75;
 }
-else if (billingItem === "sms") {
+else if (billingItems === "sms") {
 
     radioSmsTotal += 0;
 }
-} 
-for (var i=0;i<billingItems.length;i++) {
-    var billingItem = billingItems[i];
+//} 
+/*for (var i=0;i<billingItems.length;i++) {
+    var billingItem = billingItems[i];*/
 
     var radioSmsTotal = 3.00;
 
-if (billingItem === "sms") {
+if (billingItems === "sms") {
 
     radioSmsTotal += 0.75;
 }
-else if (billingItem === "call") {
+else if (billingItems === "call") {
 
     radioCallTotal += 0;
 }
-}
+//}
     
     radioCallTotalElement.innerHTML = radioCallTotal.toFixed(2);
     radioSmsTotalElement.innerHTML = radioSmsTotal.toFixed(2);
     var radioTotalBill = radioCallTotal + radioSmsTotal;
     radioTotalBillElement.innerHTML = radioTotalBill.toFixed(2);
-
+    }
 
 return radioTotalBill
 }
@@ -85,7 +85,7 @@ else if (currentRadioTotalBill >= 30 && currentRadioTotalBill <= 50){
 
 function checkedRadioBtn() {
     var billItemTypeRadio = radioBtns.value;
-    radioTotalBillElement.innerHTML = radioTotalBill;
+    //radioTotalBillElement.innerHTML = radioTotalBill;
    radioTotalBill = radioTotalBilling(billItemTypeRadio);
    selectingRadioBillColor(radioTotalBill)
   // alert(radioTotalBill);

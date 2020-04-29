@@ -28,78 +28,77 @@ function billTypeTotal(billItemTypeWithSettings) {
     const checkedSettingsRadioButtons = document.querySelector(".billItemTypeWithSettings:checked");
     if (checkedSettingsRadioButtons){
      var billItemTypeWithSettings = checkedSettingsRadioButtons.value
-    }
-var settingBillItems = billItemTypeWithSettings.split(" ");
-for (var i=0;i<settingBillItems.length;i++) {
-    var settingBillItem = settingBillItems[i].trim();
-    var settingCallTotal = 34.00;
-if (settingBillItem === "call") {
-    settingCallTotal += 2.65;
+    
+//var settingBillItems = billItemTypeWithSettings;
+
+    var settingCallTotal = 0;
+    var settingSmsTotal = 0;
+if (billItemTypeWithSettings === "call") {
+    settingCallTotal += callCostSetting;
 }
 
- if (settingBillItem === "sms") {
-    settingSmsTotal += 0.65;
+ else if (billItemTypeWithSettings === "sms") {
+    settingSmsTotal += smsCostSetting;
 }
-} 
-for (var i=0;i<settingBillItems.length;i++) {
-    var settingBillItem = settingBillItems[i];
-    var settingSmsTotal = 7.35;
-if (settingBillItem === "call") {
-    settingCallTotal += 2.65;
+
+
+    
+/*if (billItemTypeWithSettings === "sms") {
+    settingSmsTotal += smsCostSetting;
 }
- if (settingBillItem === "sms") {
-    settingSmsTotal += 0.65;
-}
-}
+ else if (billItemTypeWithSettings === "call") {
+    settingCallTotal += callCostSetting;
+}*/
+
     settingCallTotalElement.innerHTML = settingCallTotal.toFixed(2);
     settingSmsTotalElement.innerHTML = settingSmsTotal.toFixed(2);
-    const settingTotalBill = settingCallTotal + settingSmsTotal;
-    settingTotalBillElement.innerHTML = settingTotalBill.toFixed(2);
+    var settingTotalBill = settingCallTotal + settingSmsTotal;
+    settingTotalBillElement.innerHTML = settingTotalBill;
+}
 return settingTotalBill;
 }
 function selectingSettingBillColor(settingTotalBill) {
-const currentSettingTotalBill = Number(settingTotalBill);
+
+var currentSettingTotalBill = Number(settingTotalBill);
+
+//var  settingTotalBillSpanElement = criticalLevelSettings;
 settingTotalBillSpanElement.classList.remove("danger");
 settingTotalBillSpanElement.classList.remove("warning");
-if (currentSettingTotalBill >= 65){
+
+warningLevelSetting = warningLevelSettings.value;
+criticalLevelSetting = criticalLevelSettings.value;
+if (currentSettingTotalBill >= criticalLevelSetting){
+
     settingTotalBillSpanElement.classList.add("danger");   
 }
-else if (currentSettingTotalBill >= 30 && currentSettingTotalBill <= 65){
-
+else if (currentSettingTotalBill >= warningLevelSetting && currentSettingTotalBill <= criticalLevelSetting){
+    
     settingTotalBillSpanElement.classList.add("warning");  
 }
 }
 
-//function updatingSettings() {
-
-   
-  
-//}
 
 
 function checkedBillTypeBtn() {
-    var billItemTypeWithSettings = settingsRadioButtons.value;
- settingTotalBill = billTypeTotal(billItemTypeWithSettings);
-   settingTotalBillElement.innerHTML = settingTotalBill;
+
+   var billItemTypeWithSettings = settingsRadioButtons.value;
+settingTotalBill = billTypeTotal(billItemTypeWithSettings);
+ //  settingTotalBillElement.innerHTML = settingTotalBill;
    selectingSettingBillColor(settingTotalBill);
-   //alert(settingTotalBill);
+   
+  // alert(settingTotalBill);
 }
 
 function checkedSettingBillBtn() {
-    var updateSettings = updateSettingsBtn.value;
+ 
 
-    var settingTotalBill = updateSettings;
-if (settingTotalBill >= 65.00){
-    updateSettings(criticalLevelSetting);
-}
-
-
- settingCallTotal =  callCostSettings.value;
- smsCostSetting =  smsCostSettings.value;
- warningLevelSetting = warningLevelSettings.value;
- criticalLevelSetting = criticalLevelSettings.value;
+callCostSetting =  Number(callCostSettings.value);
+ smsCostSetting =  Number(smsCostSettings.value);
+ warningLevelSetting = Number(warningLevelSettings.value);
+ criticalLevelSetting = Number(criticalLevelSettings.value);
  //settingTotalBill = updatingSettings(settingTotalBill);
-//alert(warningLevelSetting);
+//alert(criticalLevelSetting );
+
 }
 //in the event listener get the value from the billItemTypeRadio radio buttons
 // * add the appropriate value to the call / sms total
