@@ -32,7 +32,7 @@ if (billingType === "call"){
 callsTotal += 2.75;
 }
 else if (billingType === "sms"){
-smsTotal += 0;
+smsTotal += 0.75;
 }
 
 
