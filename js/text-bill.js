@@ -22,7 +22,7 @@ const totalCostSpanElement = document.querySelector(".red");
 
 function textBillTotal(billTypeText){
 // get the value entered in the billType textfield
-var billingType = billTypeText;
+var billingType = billTypeTextField.value;
 // update the correct total
 /*for (var i=0;i<billingType.length;i++) {
 var billingTrim = billingType[i].trim();*/
@@ -53,7 +53,7 @@ smsTotalElement.innerHTML = smsTotal.toFixed(2);
 var totalCost = callsTotal + smsTotal;
 totalCostElement.innerHTML = totalCost.toFixed(2);
 
-return totalCost;
+//return totalCost;
 } 
 
 function stylingTotalCostColor(totalCost) {
