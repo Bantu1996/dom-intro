@@ -26,8 +26,8 @@ var billingType = billTypeText;
 // update the correct total
 /*for (var i=0;i<billingType.length;i++) {
 var billingTrim = billingType[i].trim();*/
-var callsTotal = 27.50;
-var smsTotal = 13.75;
+var callsTotal = 0;
+var smsTotal = 0;
 if (billingType === "call"){
 callsTotal += 2.75;
 }
