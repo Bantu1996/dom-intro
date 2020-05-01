@@ -11,11 +11,13 @@ var totalCostElement = document.querySelector(".totalOne");
 
 const totalCostSpanElement = document.querySelector(".red");
 
-
-function textBillTotal(billTypeText){
-var billingType = billTypeTextField.value;
 var callsTotal = 0;
 var smsTotal = 0;
+var totalCost = 0;
+
+function textBillTotal(){
+var billingType = billTypeTextField.value;
+
 if (billingType === "call"){
 callsTotal += 2.75;
 }
@@ -24,15 +26,16 @@ smsTotal += 0.75;
 }
 
 //MY Math Section
-
+stylingTotalCostColor();
 callsTotalElement.innerHTML = callsTotal.toFixed(2);
 smsTotalElement.innerHTML = smsTotal.toFixed(2);
-var totalCost = callsTotal + smsTotal;
+ totalCost = callsTotal + smsTotal;
 totalCostElement.innerHTML = totalCost.toFixed(2);
+
 
 } 
 
-function stylingTotalCostColor(totalCost) {
+function stylingTotalCostColor() {
 
 const currentTotalCost = Number(totalCost);
 totalCostSpanElement.classList.remove("danger");
@@ -49,14 +52,14 @@ totalCostSpanElement.classList.add("warning");
 }
 
 
-function addToBillBtnClicked(){
+/*function addToBillBtnClicked(){
 
 var billTypeText = billTypeTextField.value;
- totalCost = textBillTotal(billTypeText);
+ totalCost = textBillTotal();
 
-stylingTotalCostColor(totalCost)
+stylingTotalCostColor()
 
-}
+}*/
 
-addToBillBtn.addEventListener("click", addToBillBtnClicked)
+addToBillBtn.addEventListener("click", textBillTotal )
 

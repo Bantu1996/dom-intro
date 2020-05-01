@@ -16,18 +16,15 @@ const settingSmsTotalElement = document.querySelector(".smsTotalSettings");
 const settingTotalBillElement = document.querySelector(".totalSettings");
 const settingTotalBillSpanElement = document.querySelector(".blue")
 
+var settingCallTotal = 0;
+var settingSmsTotal = 0;
 
 
-
-function billTypeTotal(billItemTypeWithSettings) {
+function billTypeTotal() {
     const checkedSettingsRadioButtons = document.querySelector(".billItemTypeWithSettings:checked");
     if (checkedSettingsRadioButtons){
      var billItemTypeWithSettings = checkedSettingsRadioButtons.value
     
-
-
-    var settingCallTotal = 0;
-    var settingSmsTotal = 0;
 if (billItemTypeWithSettings === "call") {
     settingCallTotal += callCostSetting;
 }
@@ -35,7 +32,6 @@ if (billItemTypeWithSettings === "call") {
  else if (billItemTypeWithSettings === "sms") {
     settingSmsTotal += smsCostSetting;
 }
-
 
     settingCallTotalElement.innerHTML = settingCallTotal.toFixed(2);
     settingSmsTotalElement.innerHTML = settingSmsTotal.toFixed(2);
@@ -64,25 +60,19 @@ else if (currentSettingTotalBill >= warningLevelSetting && currentSettingTotalBi
 }
 }
 
-
-
 function checkedBillTypeBtn() {
 
-   var billItemTypeWithSettings = settingsRadioButtons.value;
-settingTotalBill = billTypeTotal(billItemTypeWithSettings);
- 
-   selectingSettingBillColor(settingTotalBill);
-   
+    var billItemTypeWithSettings = settingsRadioButtons.value;
+    settingTotalBill = billTypeTotal();
+    selectingSettingBillColor(settingTotalBill);
 
 }
-
 function checkedSettingBillBtn() {
- 
-
-callCostSetting =  Number(callCostSettings.value);
- smsCostSetting =  Number(smsCostSettings.value);
- warningLevelSetting = Number(warningLevelSettings.value);
- criticalLevelSetting = Number(criticalLevelSettings.value);
+    
+    callCostSetting =  Number(callCostSettings.value);
+    smsCostSetting =  Number(smsCostSettings.value);
+    warningLevelSetting = Number(warningLevelSettings.value);
+    criticalLevelSetting = Number(criticalLevelSettings.value);
 
 }
 addBillTypeButton.addEventListener("click", checkedBillTypeBtn)
