@@ -58,20 +58,23 @@ selectingSettingBillColor();
 function selectingSettingBillColor() {
 
 var currentSettingTotalBill = Number(settingTotalBill);
-
+settingTotalBillSpanElement.classList.remove("danger");
  settingTotalBillSpanElement.classList.remove("warning");
-    settingTotalBillSpanElement.classList.remove("danger");
+    
 
-if (currentSettingTotalBill >= warningLevelSetting && currentSettingTotalBill <= criticalLevelSetting){
+if (currentSettingTotalBill >= warningLevelSetting && currentSettingTotalBill < criticalLevelSetting){
     settingTotalBillSpanElement.classList.remove("danger");
     settingTotalBillSpanElement.classList.add("warning");  
 }
 
 else if (currentSettingTotalBill >= criticalLevelSetting){
-    settingTotalBillSpanElement.classList.remove("warning");
+   settingTotalBillSpanElement.classList.remove("warning");
     settingTotalBillSpanElement.classList.add("danger");   
 }
- 
+ else {
+    settingTotalBillSpanElement.classList.remove("warning");
+    settingTotalBillSpanElement.classList.remove("danger");
+ }
 
 }
 
