@@ -18,12 +18,17 @@ const settingTotalBillSpanElement = document.querySelector(".blue")
 var settingCallTotal = 0;
 var settingSmsTotal = 0;
 var settingTotalBill = 0;
-var currentSettingTotalBill = 0;
+
+var callCostSetting =  0;
+var smsCostSetting =  0;
+var warningLevelSetting = 0;
+var criticalLevelSetting = 0;
+
 
 
 function billTypeTotal() {
     const checkedSettingsRadioButtons = document.querySelector(".billItemTypeWithSettings:checked");
-    if (checkedSettingsRadioButtons){
+    if (checkedSettingsRadioButtons) {
      var billItemTypeWithSettings = checkedSettingsRadioButtons.value
 
  if (settingTotalBill < criticalLevelSetting)  { 
@@ -46,7 +51,7 @@ selectingSettingBillColor();
     settingTotalBillElement.innerHTML = settingTotalBill;
 
 }
-// return settingTotalBill;
+
 }
 
 
@@ -70,10 +75,7 @@ else if (currentSettingTotalBill >= criticalLevelSetting){
 
 }
 
-var callCostSetting =  0;
-var smsCostSetting =  0;
-var warningLevelSetting = 0;
-var criticalLevelSetting = 0;
+
 
 function checkedSettingBillBtn() {
     
