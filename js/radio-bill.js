@@ -17,9 +17,9 @@ const radioTotalBillElement = document.querySelector(".totalTwo");
 
 const radioTotalBillSpanElement = document.querySelector(".orange");
 
-var radioCallTotal = 0;
+var radioCallTotal = 0.00;
 
-var radioSmsTotal = 0;
+var radioSmsTotal = 0.00;
 
 function radioTotalBilling() {
     
@@ -37,7 +37,7 @@ if (billingItems === "call") {
 }
 else if (billingItems === "sms") {
 
-    radioSmsTotal += 0;
+    radioSmsTotal += 0.00;
 }
 
 
@@ -49,7 +49,7 @@ if (billingItems === "sms") {
 }
 else if (billingItems === "call") {
 
-    radioCallTotal += 0;
+    radioCallTotal += 0.00;
 }
 
 selectingRadioBillColor();
@@ -64,17 +64,20 @@ selectingRadioBillColor();
 
 function selectingRadioBillColor() {
 
-const currentRadioTotalBill = Number(radioTotalBill);
-radioTotalBillSpanElement.classList.remove("danger");
+var currentRadioTotalBill = Number(radioTotalBill);
+
 radioTotalBillSpanElement.classList.remove("warning");
-if (currentRadioTotalBill >= 50){
+radioTotalBillSpanElement.classList.remove("danger");
 
-    radioTotalBillSpanElement.classList.add("danger");   
-}
-else if (currentRadioTotalBill >= 30 && currentRadioTotalBill <= 50){
-
+if (currentRadioTotalBill >= 30.00 && currentRadioTotalBill <= 50.00){
+    //radioTotalBillSpanElement.classList.remove("danger");
     radioTotalBillSpanElement.classList.add("warning");  
 }
+else if (currentRadioTotalBill >= 50.00){
+    //radioTotalBillSpanElement.classList.remove("warning");
+    radioTotalBillSpanElement.classList.add("danger");   
+}
+
 }
 
 

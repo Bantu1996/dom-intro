@@ -15,14 +15,14 @@ const settingSmsTotalElement = document.querySelector(".smsTotalSettings");
 const settingTotalBillElement = document.querySelector(".totalSettings");
 const settingTotalBillSpanElement = document.querySelector(".blue")
 
-var settingCallTotal = 0;
-var settingSmsTotal = 0;
-var settingTotalBill = 0;
+var settingCallTotal = 0.00;
+var settingSmsTotal = 0.00;
+var settingTotalBill = 0.00;
 
-var callCostSetting =  0;
-var smsCostSetting =  0;
-var warningLevelSetting = 0;
-var criticalLevelSetting = 0;
+var callCostSetting =  0.00;
+var smsCostSetting =  0.00;
+var warningLevelSetting = 0.00;
+var criticalLevelSetting = 0.00;
 
 
 
@@ -48,7 +48,7 @@ selectingSettingBillColor();
     settingCallTotalElement.innerHTML = settingCallTotal.toFixed(2);
     settingSmsTotalElement.innerHTML = settingSmsTotal.toFixed(2);
     settingTotalBill = settingCallTotal + settingSmsTotal;
-    settingTotalBillElement.innerHTML = settingTotalBill;
+    settingTotalBillElement.innerHTML = settingTotalBill.toFixed(2);
 
 }
 
