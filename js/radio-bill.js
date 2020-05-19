@@ -66,18 +66,20 @@ function selectingRadioBillColor() {
 
 var currentRadioTotalBill = Number(radioTotalBill);
 
-radioTotalBillSpanElement.classList.remove("warning");
 radioTotalBillSpanElement.classList.remove("danger");
+radioTotalBillSpanElement.classList.remove("warning");
 
-if (currentRadioTotalBill >= 30.00 && currentRadioTotalBill <= 50.00){
-    //radioTotalBillSpanElement.classList.remove("danger");
-    radioTotalBillSpanElement.classList.add("warning");  
-}
-else if (currentRadioTotalBill >= 50.00){
+if (currentRadioTotalBill >= 50.00){
     //radioTotalBillSpanElement.classList.remove("warning");
     radioTotalBillSpanElement.classList.add("danger");   
 }
 
+
+else if (currentRadioTotalBill >= 30.00 && currentRadioTotalBill <= 50.00){
+    //radioTotalBillSpanElement.classList.remove("danger");
+    radioTotalBillSpanElement.classList.add("warning");  
+}
+ 
 }
 
 
