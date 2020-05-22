@@ -1,5 +1,5 @@
 
-var radioBtns = document.querySelector(".billItemTypeRadio");
+const radioBtns = document.querySelector(".billItemTypeRadio");
 
 const radioBillAddBtn = document.querySelector(".button");
 
@@ -16,6 +16,7 @@ const radioSmsTotalSpanElement = document.querySelector(".smsTotalTwo");
 const radioTotalBillElement = document.querySelector(".totalTwo");
 
 const radioTotalBillSpanElement = document.querySelector(".orange");
+
 
 var radioCallTotal = 0.00;
 
@@ -37,19 +38,7 @@ if (billingItems === "call") {
 }
 else if (billingItems === "sms") {
 
-    radioSmsTotal += 0.00;
-}
-
-
-    
-
-if (billingItems === "sms") {
-
     radioSmsTotal += 0.75;
-}
-else if (billingItems === "call") {
-
-    radioCallTotal += 0.00;
 }
 
 selectingRadioBillColor();
@@ -59,28 +48,29 @@ selectingRadioBillColor();
     radioTotalBillElement.innerHTML = radioTotalBill.toFixed(2);
     }
 
-//return radioTotalBill
+return radioTotalBill
 }
+
+
+var warningLevel = 30.00;
+var criticalLevel = 50.00;
 
 function selectingRadioBillColor() {
 
-var currentRadioTotalBill = Number(radioTotalBill);
+//var currentRadioTotalBill = Number(radioTotalBill);
 
-radioTotalBillSpanElement.classList.remove("danger");
 radioTotalBillSpanElement.classList.remove("warning");
+radioTotalBillSpanElement.classList.remove("danger");
 
-if (currentRadioTotalBill >= 50.00){
-    //radioTotalBillSpanElement.classList.remove("warning");
-    radioTotalBillSpanElement.classList.add("danger");   
+
+if (radioTotalBill >= warningLevel && radioTotalBill <= criticalLevel){
+   // radioTotalBillSpanElement.classList.remove("danger");
+      radioTotalBillSpanElement.classList.add("warning");   
+  }
+else if (radioTotalBill >= criticalLevel){
+   //radioTotalBillSpanElement.classList.remove("warning");
+    radioTotalBillSpanElement.classList.add("danger");  
 }
-
-
-else if (currentRadioTotalBill >= 30.00 && currentRadioTotalBill <= 50.00){
-    //radioTotalBillSpanElement.classList.remove("danger");
-    radioTotalBillSpanElement.classList.add("warning");  
 }
- 
-}
-
 
 radioBillAddBtn.addEventListener("click", radioTotalBilling)
