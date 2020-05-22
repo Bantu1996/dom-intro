@@ -19,12 +19,12 @@ var settingsInstance = BillWithSettings();
 
 
 function checkedSettingBillBtn() {
-    /*Number(callCostSettings.value);
-   Number(smsCostSettings.value);
-   Number(warningLevelSettings.value);
-   Number(criticalLevelSettings.value);
-selectingSettingBillColor();*/
-alert(settingsInstance);
+    settingsInstance.setCallCost(Number(callCostSettings.value))
+    settingsInstance.setSmsCost(Number(smsCostSettings.value))
+    settingsInstance.setWarningLevel(Number(warningLevelSettings.value))
+    settingsInstance.setCriticalLevel(Number(criticalLevelSettings.value))
+selectingSettingBillColor()
+//alert(settingsInstance);
 }
 
 
@@ -34,26 +34,27 @@ function billTypeTotal() {
     if (checkedSettingsRadioButtons) {
      var billItemTypeWithSettings = checkedSettingsRadioButtons.value
 
+        if(billItemTypeWithSettings === "call") {
+            settingsInstance.makeCall() 
+        }
+        else if (billItemTypeWithSettings === "sms"){
+            settingsInstance.sendSms()
+        }
 
-
-    /*settingCallTotalElement.innerHTML = settingCallTotal.toFixed(2);
-    settingSmsTotalElement.innerHTML = settingSmsTotal.toFixed(2);
-    settingTotalBill = settingCallTotal + settingSmsTotal;
-    settingTotalBillElement.innerHTML = settingTotalBill.toFixed(2);*/
+        selectingSettingBillColor()
+    settingCallTotalElement.innerHTML = (settingsInstance.getTotalCallCost()).toFixed(2);
+    settingSmsTotalElement.innerHTML = (settingsInstance. getTotalSmsCost()).toFixed(2);
+    settingTotalBillElement.innerHTML = (settingsInstance.getTotalCost()).toFixed(2);
 
 }
 
 }
-
-
 function selectingSettingBillColor() {
 
+settingTotalBillSpanElement.classList.remove("warning");
+ settingTotalBillSpanElement.classList.remove("danger");
 
-
-    settingTotalBillSpanElement.classList.remove("warning");
-    settingTotalBillSpanElement.classList.remove("danger");
-
-
+    settingTotalBillSpanElement.classList.add(settingsInstance.totalClassName())
 }
 
 

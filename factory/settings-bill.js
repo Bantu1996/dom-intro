@@ -80,7 +80,7 @@ return smsTotalCost;
  
 function totalClassName() {
     if (hasReachedTheCriticalLevel()) {
-        return "critical";
+        return "danger";
     }
 
 if (getTotalCost() >= getWarningLevel()) {
@@ -103,7 +103,7 @@ return {
     getTotalCost,
     sendSms,
     totalClassName,
-    hasReachedTheCriticalLevel,
+    hasReachedTheCriticalLevel
 
 };
 }

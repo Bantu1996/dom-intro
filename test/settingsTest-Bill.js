@@ -179,7 +179,7 @@ settingsBill.makeCall();
 settingsBill.sendSms();
 settingsBill.sendSms();
 
-    assert.equal("critical" , settingsBill.totalClassName());
+    assert.equal("danger" , settingsBill.totalClassName());
 
 });
 
@@ -198,7 +198,7 @@ settingsBill.makeCall();
 settingsBill.makeCall();
 settingsBill.makeCall();
 
-    assert.equal("critical", settingsBill.totalClassName());
+    assert.equal("danger", settingsBill.totalClassName());
     assert.equal(10, settingsBill.getTotalCallCost());
 
 });
@@ -219,7 +219,7 @@ settingsBill.makeCall();
 settingsBill.makeCall();
 settingsBill.makeCall();
 
-    assert.equal("critical", settingsBill.totalClassName());
+    assert.equal("danger", settingsBill.totalClassName());
     assert.equal(10, settingsBill.getTotalCallCost());
 
     settingsBill.setCriticalLevel(20);
