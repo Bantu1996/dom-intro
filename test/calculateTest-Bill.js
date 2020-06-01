@@ -1,29 +1,26 @@
 describe("The calculate bill factory function", function() {
-    it ("should be able to set the call cost on calculate bill", function () {
+  describe("enter the bill string", function() {
 
-        let calculateBill = calculatingBill();
+
   
-        calculateBill.setCalcCriticalLevel(10);
-        calculateBill.setCalcCallCost(1.85); 
-       assert.equal(1.85, calculateBill.getCalcCallCost());
+    it ("should be able to enter a string of calls on calculate bill", function () {
+
+        let calculateBill = CalculatingBill();
   
-       let calculateBill2 = calculatingBill();
+        
+        calculateBill.setCalcCallCost(2.75); 
+        
+        assert.equal(calculateBill.getCalcCallCost('call, call, call, call'), 2.75);
   
-       calculateBill2.setCalcCallCost(2.55); 
-       assert.equal(2.55, calculateBill2.getCalcCallCost());
       });
+      it ("should be able to enter a string of sms on calculate bill", function () {
 
-      it ("should be able to set the sms cost on calculate bill", function () {
-        let calculateBill = calculatingBill();
+        let calculateBill = CalculatingBill();
   
-
-        calculateBill.setCalcSmsCost(0.85); 
-       assert.equal(0.85, calculateBill.getCalcSmsCost());
-  
-       let calculateBill2 = calculatingBill();
-
-       calculateBill2.setCalcSmsCost(0.55); 
-       assert.equal(0.55, calculateBill2.getCalcSmsCost())
+        
+        calculateBill.setCalcSmsCost(0.75); 
+        
+        assert.equal(calculateBill.getCalcSmsCost('sms, sms, sms, sms'), 0.75);
+    });
       });
-
-});
+    });

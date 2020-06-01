@@ -24,7 +24,6 @@ function checkedSettingBillBtn() {
     settingsInstance.setWarningLevel(Number(warningLevelSettings.value))
     settingsInstance.setCriticalLevel(Number(criticalLevelSettings.value))
 selectingSettingBillColor()
-//alert(settingsInstance);
 }
 
 

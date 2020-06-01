@@ -41,7 +41,7 @@ else if (billingItems === "sms") {
     radioSmsTotal += 0.75;
 }
 
-selectingRadioBillColor();
+//selectingRadioBillColor();
     radioCallTotalElement.innerHTML = radioCallTotal.toFixed(2);
     radioSmsTotalElement.innerHTML = radioSmsTotal.toFixed(2);
     radioTotalBill = radioCallTotal + radioSmsTotal;
@@ -52,8 +52,8 @@ return radioTotalBill
 }
 
 
-var warningLevel = 30.00;
-var criticalLevel = 50.00;
+// var warningLevel = 30.00;
+// var criticalLevel = 50.00;
 
 function selectingRadioBillColor() {
 
@@ -64,11 +64,11 @@ radioTotalBillSpanElement.classList.remove("danger");
 
 
 if (radioTotalBill >= warningLevel && radioTotalBill <= criticalLevel){
-   // radioTotalBillSpanElement.classList.remove("danger");
+   radioTotalBillSpanElement.classList.remove("danger");
       radioTotalBillSpanElement.classList.add("warning");   
   }
 else if (radioTotalBill >= criticalLevel){
-   //radioTotalBillSpanElement.classList.remove("warning");
+   radioTotalBillSpanElement.classList.remove("warning");
     radioTotalBillSpanElement.classList.add("danger");  
 }
 }
